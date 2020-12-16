@@ -15,20 +15,22 @@ function spoken(inputs, turn)
         turnMemory[inputs[i]] = i
     end
     # play the remaining rounds
-    return playUpToTurn(turnMemory,latestNumber,latestTurn,turn)
+    return playUpToTurn(turnMemory, latestNumber, latestTurn, turn)
 end
 
 function playUpToTurn(relevantTurns, currentNumber, from, upTo)
-    roundResult = 0
-    if haskey(relevantTurns,currentNumber)
-        roundResult = from - relevantTurns[currentNumber]
+    result = 0
+    while from < upTo
+        roundResult = 0
+        if haskey(relevantTurns, currentNumber)
+            roundResult = from - relevantTurns[currentNumber]
+        end
+        relevantTurns[currentNumber] = from
+        from = from + 1
+        currentNumber = roundResult
+        result = roundResult
     end
-    relevantTurns[currentNumber] = from
-    if from < (upTo-1)
-        return playUpToTurn(relevantTurns, roundResult, from + 1, upTo)
-    else
-        return roundResult
-    end 
+    return result
 end
 
 end

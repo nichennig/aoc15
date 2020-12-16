@@ -35,4 +35,14 @@ using Test
         @test aoc15.spoken([3,1,2], 2020) == 1836
     end
 
+    @testset "30000000Examples" begin
+        @test aoc15.spoken([0,3,6], 30000000) == 175594
+        @test aoc15.spoken([1,3,2], 30000000) == 2578
+        @test aoc15.spoken([2,1,3], 30000000) == 3544142
+        @test aoc15.spoken([1,2,3], 30000000) == 261214
+        @test aoc15.spoken([2,3,1], 30000000) == 6895259
+        @test aoc15.spoken([3,2,1], 30000000) == 18
+        @test aoc15.spoken([3,1,2], 30000000) == 362
+    end
+
 end
