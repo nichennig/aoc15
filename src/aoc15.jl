@@ -2,7 +2,6 @@ module aoc15
 
 export spoken, playUpToTurn
 
-# Write your package code here.
 function spoken(inputs, turn)
     if turn <= length(inputs)
         return inputs[turn]
